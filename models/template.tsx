@@ -2,7 +2,7 @@ import VerifyModel from "../utils/VerifyModel";
 import AutomationModel, { AutomationType } from "./automation";
 import SectionModel from "./section";
 import StageModel, { StageType } from "./stage";
-import { v4 as uuidv4 } from 'uuid';
+import { GenerateKey } from "../utils/common";
 
 const TemplateHistoryObject = {
     _id: 1,
@@ -50,13 +50,13 @@ export const getDefaultTemplate = () => {
         Stages: [
             {
                 Name: "Default Stage",
-                id: uuidv4(),
+                id: GenerateKey(),
                 Columns: 1,
                 Sections: [
                     {
                         Name: "section1",
                         Type: 'contained',
-                        id: uuidv4(),
+                        id: GenerateKey(),
                     }
                 ]
             }

@@ -16,7 +16,6 @@ import {
   IconMoonStars,
   IconHelp,
 } from '@tabler/icons';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const useStyles = createStyles((theme) => ({
@@ -107,7 +106,7 @@ export function NavbarMinimal(props: any) {
         if(router.pathname.includes(row.url))
             setActive(row.id)
     })
-  }, []);
+  }, [router.pathname]);
 
   const links = navigationData.map((link, index) => (
     <NavbarLink
@@ -125,7 +124,7 @@ export function NavbarMinimal(props: any) {
   return (
     <Navbar width={{ base: 80 }} p="md">
       <Center>
-        <Avatar color="blue" radius="xl">
+        <Avatar radius="xl">
             <IconRobot />
         </Avatar>
       </Center>

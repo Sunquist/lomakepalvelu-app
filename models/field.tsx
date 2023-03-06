@@ -22,7 +22,7 @@ export interface FieldType {
     disabled?: boolean,
     required?: boolean,
     hidden?: boolean,
-    type?: string,
+    type: string,
     typeProperties?: any,
     content?: string,
     visibility?: any,

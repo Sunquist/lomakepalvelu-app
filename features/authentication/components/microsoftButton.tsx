@@ -1,12 +1,13 @@
 import { Button, ButtonProps, Group } from '@mantine/core';
 
-export default function TwitterButton(props: ButtonProps & React.ComponentPropsWithoutRef<'a'>) {
+export default function MicrosoftButton(props: ButtonProps & React.ComponentPropsWithoutRef<'a'>) {
     return (
       <Button
         component="a"
         leftIcon={<MicrosoftIcon color="#00ACEE" />}
         onClick={() => {
-          window.location = "/api/auth/ms/login"
+          const _window: Window = window;
+          _window.location = "/api/auth/ms/login"
         }}
         variant="default"
         {...props}

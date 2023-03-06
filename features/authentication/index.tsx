@@ -1,3 +1,1 @@
-import { AuthenticationForm } from './components/loginform';
-
-export const LoginForm = AuthenticationForm;
+export { AuthenticationForm } from './components/loginform';

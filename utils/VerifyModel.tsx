@@ -5,7 +5,7 @@
  * @returns {object} Data inserted into model
  * @throws Exception if missing required fields
  */
- export default function VerifyModel (document: any, model: any, parent?: string) {
+ export default function VerifyModel (document: any, model: any, parent?: string): any {
     return Object.getOwnPropertyNames(model).map((prop) => {
       const value = document[prop];
       const modelValue = model[prop];

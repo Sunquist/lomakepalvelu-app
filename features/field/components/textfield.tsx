@@ -1,33 +1,35 @@
-import FieldModel from "../../../models/field"
+import FieldModel, { FieldType } from "../../../models/field"
 import VerifyModel from "../../../utils/VerifyModel"
-import { v4 as uuidv4 } from 'uuid'
-import { translate } from "../../../utils/translate"
 import DraggableAdminField from "./adminfield"
+import { GetDefaultField } from "./commonField"
 
 export function TextFieldRender () {
     
 }
 
 export function TextFieldAdminRender (props: any) {
-    return <DraggableAdminField index={props.index} field={props.field} />
+    return <DraggableAdminField key={props.id} index={props.index} field={props.field} />
 }
 
 export function TextFieldAdminRenderOptions () {
 
 }
 
-export function GetDefaultTextField (index: number = 1) {
-    const id = uuidv4()
+export function GetDefaultTextField (index: number = 1, t: any): TextFieldType {
+    const _defaultField = GetDefaultField();
     return VerifyModel({
-        id,
-        key: id,
+        ..._defaultField,
         type: "text",
-        label: `${translate('field_text_label')} ${index}`
+        label: `${t('field_text_label')} ${index}`
     }, FieldModel)
 }
 
 export const TextFieldPropModel = {
     validation: 0,
+}
+
+export interface TextFieldType extends FieldType {
+    typeProperties: TextFieldProps
 }
 
 interface TextFieldProps {

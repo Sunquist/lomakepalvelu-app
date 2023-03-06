@@ -24,13 +24,14 @@ export function authenticate(req: any) {
             message: "Unauthenticated"
         })
     
-    return jwt.verify(cookies.identity, process.env.JWT_SECRETKEY)
+    return jwt.verify(cookies.identity, `${process.env.JWT_SECRETKEY}`)
 }
 
 /**
  * @returns passport-azure-ad OIDCStrategy
  */
 export function getOIDCStrategy () {
+    //@ts-ignore types missmatch
     return new OIDCStrategy({
         identityMetadata: `https://login.microsoftonline.com/${process.env.AZUREOPENID_TENANTID}/v2.0/.well-known/openid-configuration`,
         clientID: process.env.AZUREOPENID_CLIENTID,
@@ -63,14 +64,17 @@ export function getOIDCStrategy () {
  * @param {*} next 
  */
 export function authenticationCookieHandler (req: NextApiRequest,res: NextApiResponse,next: any) {
+    //@ts-ignore middleware
     res.cookie = (...cookieOptions: any) => {
         const [ token, value, options ] = cookieOptions;
         addCookie(res, token, value, options)
     }
+    //@ts-ignore middleware
     res.clearCookie = (...cookieOptions: any) => {
         const [ token ] = cookieOptions;
         addCookie(res, token, "destroy", { expire: 0, overwrite: true })
     }
+    //@ts-ignore middleware
     req.res = res;
     next()
 }
@@ -88,7 +92,7 @@ export function addCookie (...ops: any) {
     let currentCookies = res.getHeader('Set-Cookie');
 
     if(currentCookies){
-        return res.setHeader('Set-Cookie', [serialize(token, value, options), ...((currentCookies.filter)? currentCookies : [currentCookies]).filter((c) => {
+        return res.setHeader('Set-Cookie', [serialize(token, value, options), ...((currentCookies.filter)? currentCookies : [currentCookies]).filter((c: any) => {
             const cToken = c.split("=")[0];
             return cToken !== token
         })]);
@@ -179,12 +183,12 @@ export async function generateSession(providedUser: UserProvider, req: NextApiRe
         ...user
     }
 
-    const token = jwt.sign(sessionDoc, process.env.JWT_SECRETKEY, {
+    const token = jwt.sign(sessionDoc, `${process.env.JWT_SECRETKEY}`, {
         expiresIn: process.env.JWT_EXPIRES,
         issuer: process.env.JWT_ISSURE,
     });
 
-    jwt.verify(token, process.env.JWT_SECRETKEY)
+    jwt.verify(token, `${process.env.JWT_SECRETKEY}`)
 
     addCookie(res, 'identity', token, { path: '/' });
 }

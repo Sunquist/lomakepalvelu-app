@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import styles from './login.module.css'
 import { MantineProvider } from '@mantine/core';
-import { LoginForm } from '../../features/authentication';
+import { AuthenticationForm } from '../../features/authentication';
 import { authenticate } from '../../lib/auth';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: 'light' }}>
             <div className={styles.container}>
                 <main className={styles.main}>
-                    <LoginForm />
+                    <AuthenticationForm />
                 </main>
             </div>
         </MantineProvider>

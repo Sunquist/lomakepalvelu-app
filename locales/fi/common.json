@@ -24,6 +24,10 @@
     "TEMPLATE_EDITOR_FORMINFO_BASIC_STYLE": "Muokkaa lomakkeen ulkoasua",
     "TEMPLATE_EDITOR_FORMINFO_SECURITY": "Tietoturva asetukset",
     "TEMPLATE_EDITOR_FORMINFO_SECURITY_DESCRIPTION": "Tietoturvaan liittyvät asetukset",
+    "TEMPLATE_EDITOR_AUTOMATIONS_COMMUNICATION": "Viestintä",
+    "TEMPLATE_EDITOR_AUTOMATIONS_COMMUNICATION_DESCRIPTION": "Kommunkaatioon liittyvät automaatiot",
+    "TEMPLATE_EDITOR_AUTOMATIONS_DATA": "Tietoliikenne",
+    "TEMPLATE_EDITOR_AUTOMATIONS_DATA_DESCRIPTION": "Lähetä tiedot ohjelmallisesti",
     "TEMPLATE_EDITOR_FIELDS_BASIC": "Peruskentät",
     "TEMPLATE_EDITOR_FIELDS_BASIC_DESCRIPTION": "Raahaa kenttä lisätäksesi se lomakkeelle",
     "TEMPLATE_EDITOR_FIELDS_ADVANCED": "Edistyneet",
@@ -56,8 +60,8 @@
     "TEMPLATE_EDITOR_SEGMENT_DESKTOP": "Esikatsele",
     "TEMPLATE_EDITOR_SEGMENT_MOBILE": "Mobiili",
     "TEMPLATE_EDITOR_SEGMENT_PREVIEW": "Tarkastele",
-    "MODAL_CONFIRM_DELETION": "Haluatko varmasti poistaa",
-    "MODAL_CONFIRM_DELETION_DESCRIPTION": "Tämä toiminto ei ole peruutettavissa.",
+    "MODAL_CONFIRM_DELETION": "Poista kenttä",
+    "MODAL_CONFIRM_DELETION_DESCRIPTION": "Haluatko varmasti poistaa kentän lopullisesti.",
     "MODAL_CONFIRM_DELETION_BUTTON_CONFIRM": "Poista",
     "MODAL_CONFIRM_DELETION_BUTTON_CANCEL": "Peruuta",
     "NO_THEME_SLOGAN": "Luo teema asettaaksesi logosi tähän",
@@ -67,5 +71,8 @@
     "field_select_icon": "select",
     "field_select_label": "Valinta",
     "field_select_description": "Valinta kenttä annetuista arvoista",
-    "FEATURE_COMING_SOON": "Toiminto kehityksessä"
+    "FEATURE_COMING_SOON": "Toiminto kehityksessä",
+    "EDITOR_TAB_SETTINGS": "Asetukset",
+    "EDITOR_TAB_FIELDS": "Lomake",
+    "EDITOR_TAB_AUTOMATIONS": "Automaatiot"
 }

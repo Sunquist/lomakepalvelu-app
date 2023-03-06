@@ -1,7 +1,6 @@
 import { TextFieldRender, TextFieldPropModel, TextFieldAdminRender, TextFieldAdminRenderOptions, GetDefaultTextField } from "./components/textfield"
 import { SelectFieldRender, SelectFieldAdminRender, SelectFieldAdminRenderOptions, SelectFieldPropModel, GetDefaultSelectField } from "./components/selectfield"
 
-
 export const FieldTypes = {
     BasicTypes: [
         {

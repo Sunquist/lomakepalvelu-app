@@ -6,7 +6,7 @@ import {
     IconSelect
 } from '@tabler/icons';
 
-import { translate } from '../../../utils/translate';
+import useTranslation from "next-translate/useTranslation";
 
 const useStyles = createStyles((theme) => ({
     item: {
@@ -52,6 +52,7 @@ function resolveIcon(IconName: string) {
 
 export default function DraggableTextFieldAdmin(props: any)  {
     const { classes, cx } = useStyles();
+    const { t, lang } = useTranslation("common");
 
     return (
         <Draggable key={props.field.id} index={props.index} draggableId={props.field.id}>
@@ -63,12 +64,12 @@ export default function DraggableTextFieldAdmin(props: any)  {
                 ref={provided.innerRef}
                 >
                 <Center>
-                    <Text className={classes.symbol}>{resolveIcon(translate(`field_${props.field.type}_icon`))}</Text>
+                    <Text className={classes.symbol}>{resolveIcon(t(`field_${props.field.type}_icon`))}</Text>
                 </Center>
                 <div>
-                    <Text>{translate(props.field.label)}</Text>
+                    <Text>{t(props.field.label)}</Text>
                     <Text color="dimmed" size="sm">
-                        {translate(`field_${props.field.type}_label`)}
+                        {t(`field_${props.field.type}_label`)}
                     </Text>
                 </div>
                 </div>

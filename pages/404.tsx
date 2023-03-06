@@ -50,7 +50,8 @@ export default function NotFoundTitle() {
       </Text>
       <Group position="center">
         <Button variant="subtle" size="md" onClick={() => {
-            window.location = "/"
+            const _window: Window = window;
+            _window.location = "/"
         }}>
           Takaisin kotisivulle
         </Button>

@@ -1,28 +1,26 @@
 import FieldModel from "../../../models/field"
 import VerifyModel from "../../../utils/VerifyModel"
-import { v4 as uuidv4 } from 'uuid'
-import { translate } from "../../../utils/translate"
-import DraggableTextFieldAdmin from "./adminfield"
+import DraggableAdminField from "./adminfield"
+import { GetDefaultField } from "./commonField"
 
 export function SelectFieldRender () {
     
 }
 
 export function SelectFieldAdminRender (props: any) {
-    return <DraggableTextFieldAdmin index={props.index} field={props.field} />
+    return <DraggableAdminField key={props.id} index={props.index} field={props.field} />
 }
 
 export function SelectFieldAdminRenderOptions () {
 
 }
 
-export function GetDefaultSelectField (index: number = 1) {
-    const id = uuidv4()
+export function GetDefaultSelectField (index: number = 1, t: any) {
+    const _defaultField = GetDefaultField();
     return VerifyModel({
-        id,
-        key: id,
+        ..._defaultField,
         type: "select",
-        label: `${translate('field_select_label')} ${index}`
+        label: `${t('field_select_label')} ${index}`
     }, FieldModel)
 }
 
